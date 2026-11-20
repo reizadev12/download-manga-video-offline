@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Media Saver",
+  "version": "1.0.0",
+  "description": "Simpan semua gambar chapter manga di halaman yang sedang dibuka menjadi 1 file (PDF/CBZ/ZIP), dan unduh video non-DRM.",
+  "action": {
+    "default_title": "Media Saver",
+    "default_popup": "popup.html"
+  },
+  "permissions": ["activeTab", "scripting", "downloads"],
+  "host_permissions": ["<all_urls>"]
+}

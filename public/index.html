@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Media Saver — Manga & Video Downloader</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Media Saver</h1>
+      <p class="subtitle">Simpan gambar (manga) sebagai ZIP atau unduh video non-DRM dari halaman web.</p>
+    </header>
+
+    <section class="card">
+      <form id="inspect-form" class="url-form">
+        <input
+          id="url-input"
+          type="url"
+          placeholder="Tempel URL halaman web atau link langsung (.mp4 / .m3u8)..."
+          required
+        />
+        <button id="inspect-btn" type="submit" class="btn btn-primary">Periksa</button>
+      </form>
+
+      <details class="html-fallback">
+        <summary>Alternatif: Tempel kode HTML halaman secara manual</summary>
+        <div class="html-fallback-body">
+          <input id="base-url-input" type="url" placeholder="URL asal halaman (opsional, untuk link relatif)" />
+          <textarea id="html-input" rows="4" placeholder="Tempel HTML halaman di sini..."></textarea>
+          <button id="inspect-html-btn" type="button" class="btn btn-secondary">Ekstrak dari HTML</button>
+        </div>
+      </details>
+
+      <div id="status-box" class="status hidden"></div>
+    </section>
+
+    <section id="results-section" class="hidden">
+      <div class="results-header">
+        <h2 id="page-title">Hasil</h2>
+        <div class="tabs">
+          <button id="tab-images" class="tab active" type="button">
+            Gambar / Manga (<span id="img-count">0</span>)
+          </button>
+          <button id="tab-videos" class="tab" type="button">
+            Video / Stream (<span id="vid-count">0</span>)
+          </button>
+        </div>
+      </div>
+
+      <div id="panel-images" class="panel">
+        <div class="toolbar">
+          <div class="toolbar-group">
+            <button id="select-all-btn" type="button" class="btn btn-secondary btn-sm">Pilih Semua</button>
+            <button id="deselect-all-btn" type="button" class="btn btn-secondary btn-sm">Batal Pilih</button>
+            <button id="filter-small-btn" type="button" class="btn btn-secondary btn-sm">Sembunyikan Ikon (&lt;300px)</button>
+          </div>
+          <button id="download-zip-btn" type="button" class="btn btn-primary">
+            Download ZIP (<span id="selected-count">0</span>)
+          </button>
+        </div>
+        <div id="images-grid" class="images-grid"></div>
+      </div>
+
+      <div id="panel-videos" class="panel hidden">
+        <div id="videos-list" class="videos-list"></div>
+      </div>
+    </section>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

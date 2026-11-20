@@ -1,0 +1,11 @@
+{
+  "name": "media-saver-web",
+  "version": "1.0.0",
+  "description": "Local web app for inspecting and downloading non-DRM images (manga) and videos from a webpage URL.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "license": "MIT"
+}

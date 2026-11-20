@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Media Saver</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header>
+    <h1>Media Saver</h1>
+    <p class="hint">Buka chapter/episode dulu sampai tampil normal, lalu pindai.</p>
+  </header>
+
+  <div class="row">
+    <button id="btn-scroll" class="btn secondary" type="button" title="Gulir halaman sampai bawah supaya gambar lazy-load ikut dimuat">
+      1. Muat semua gambar
+    </button>
+    <button id="btn-scan" class="btn primary" type="button">2. Pindai halaman</button>
+  </div>
+
+  <div id="status" class="status hidden"></div>
+  <div id="progress-wrap" class="progress hidden"><div id="progress-bar"></div></div>
+
+  <section id="results" class="hidden">
+    <div class="tabs">
+      <button id="tab-img" class="tab active" type="button">Gambar (<span id="img-count">0</span>)</button>
+      <button id="tab-vid" class="tab" type="button">Video (<span id="vid-count">0</span>)</button>
+    </div>
+
+    <div id="panel-img">
+      <div class="options">
+        <label>Nama file
+          <input id="filename" type="text" />
+        </label>
+        <label>Format
+          <select id="format">
+            <option value="pdf">PDF (1 file, langsung baca)</option>
+            <option value="cbz">CBZ (untuk aplikasi pembaca komik)</option>
+            <option value="zip">ZIP (gambar asli)</option>
+          </select>
+        </label>
+        <label class="check">
+          <input id="hide-small" type="checkbox" checked />
+          Sembunyikan gambar kecil (logo, ikon, iklan)
+        </label>
+      </div>
+
+      <div class="row">
+        <button id="btn-all" class="btn secondary sm" type="button">Pilih semua</button>
+        <button id="btn-none" class="btn secondary sm" type="button">Kosongkan</button>
+        <button id="btn-download" class="btn primary grow" type="button">
+          Download (<span id="sel-count">0</span>)
+        </button>
+      </div>
+
+      <div id="grid" class="grid"></div>
+    </div>
+
+    <div id="panel-vid" class="hidden">
+      <div id="video-list" class="video-list"></div>
+    </div>
+  </section>
+
+  <script src="lib/zip.js"></script>
+  <script src="lib/pdf.js"></script>
+  <script src="lib/hls.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
